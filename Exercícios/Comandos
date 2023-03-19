@@ -1,0 +1,23 @@
+-- select * from cursos
+-- order by nome asc;
+
+-- select ano, nome, carga from cursos
+-- order by ano, nome;
+
+-- select nome, carga, totaulas from cursos
+-- where ano <= '2015'
+-- order by nome;
+
+-- select * from cursos
+-- where ano between 2014 and 2018
+-- order by ano, nome;
+
+-- select * from cursos
+-- where ano in('2014', '2016', '2018')
+-- where ano not in ('2014')
+-- order by ano asc, nome;
+
+-- select * from cursos
+-- where carga > '20' and totaulas < '30'
+-- where carga > '20' or totaulas < '30'
+-- order by nome;
