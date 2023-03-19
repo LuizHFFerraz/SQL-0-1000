@@ -29,7 +29,7 @@
 -- where nome LIKE '%A%'
 -- where nome not like '%A%'
 -- where nome like 'ph%p%'
--- where nome like 'PH%P_' -- _ Exige que exista algum caractere, seja qual for.
+-- where nome like 'PH%P_' -- Exige que exista algum caractere, seja qual for.
 -- order by ano, nome;
 
 -- update cursos set nome = 'Photoshop5' where idcurso = '3';
@@ -100,7 +100,7 @@
 
 -- select ano, count(*) from cursos
 -- group by ano
--- having count(ano) >= '5' -- Havingm, vai filtrar pela quantidade, o mesmo se assemelha ao where, mas só pode ser usado para os campos que pertencem ao group by
+-- having count(ano) >= '5' -- Having, vai filtrar pela quantidade, o mesmo se assemelha ao where, mas só pode ser usado para os campos que pertencem ao group by
 -- order by count(*) desc;
 
 -- select avg(carga) from cursos;
