@@ -134,6 +134,7 @@
 -- order by count(*) desc;
 
 -- select avg(altura) from gafanhotos;
+
 -- Joins
 
 -- select
