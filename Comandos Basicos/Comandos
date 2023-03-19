@@ -1,3 +1,4 @@
+-- Aula 1
 -- select * from cursos
 -- order by nome asc;
 
@@ -21,3 +22,143 @@
 -- where carga > '20' and totaulas < '30'
 -- where carga > '20' or totaulas < '30'
 -- order by nome;
+
+-- Aula 2
+
+-- select * from cursos
+-- where nome LIKE '%A%'
+-- where nome not like '%A%'
+-- where nome like 'ph%p%'
+-- where nome like 'PH%P_' -- _ Exige que exista algum caractere, seja qual for.
+-- order by ano, nome;
+
+-- update cursos set nome = 'Photoshop5' where idcurso = '3';
+
+-- select distinct nome from cursos; -- distinct é usado para trazer valores diferentes com determinada coluna
+
+-- select count(*) from cursos; -- COUNT é usado para realizar a contagem das linhas
+
+-- select max(totaulas) from cursos; -- MAX nos mostra o maior valor no campo selecionado
+-- where ano = '2016';
+
+-- select nome, min(totaulas) from cursos -- MIN nos mostra o menor valor do campo selecionado
+-- where ano = '2016';
+
+-- select sum(totaulas) from cursos; -- SUM vai realizar um soma de todos os valores do campo selecionado
+-- select AVG(totaulas) from cursos; -- AVG vai realizar uma média de todos os valores do campo selecionado
+
+-- EX 1
+-- select * from gafanhotos
+-- where sexo = 'F';
+
+-- EX 2
+-- select * from gafanhotos
+-- where nascimento between '2000-01-01' and '2015-12-31'
+-- order by nascimento desc;
+
+-- EX 3
+-- select * from gafanhotos
+-- where profissao = 'Programador'
+-- and sexo = 'M';
+
+-- EX 4
+-- select * from gafanhotos
+-- where sexo = 'F'
+-- and nacionalidade = 'Brasil'
+-- and nome like 'J%';
+
+-- EX 5
+-- select nome, nacionalidade from gafanhotos
+-- where sexo = 'M'
+-- and nome like '%silva%'
+-- and not nacionalidade = 'Brasil'
+-- and peso < '100';
+
+-- EX 6
+-- select nome, max(altura) from gafanhotos
+-- where sexo = 'M'
+-- and nacionalidade = 'Brasil';
+
+-- EX 7
+-- select avg(peso) from gafanhotos;
+
+-- EX 8
+-- select min(peso) from gafanhotos
+-- where sexo = 'F'
+-- and not nacionalidade = 'Brasil'
+-- and nascimento between '1990-01-01' and '2000-12-31';
+
+-- EX 9
+-- select count(*) from gafanhotos
+-- where sexo = 'F'
+-- and altura > '1.90';
+
+-- Aula 3
+
+-- select carga, count(nome) from cursos
+-- group by carga; -- group by, vai agrupar as tabelas em grupos, com isso os dados não são unificados, como no distinct
+
+-- select ano, count(*) from cursos
+-- group by ano
+-- having count(ano) >= '5' -- Havingm, vai filtrar pela quantidade, o mesmo se assemelha ao where, mas só pode ser usado para os campos que pertencem ao group by
+-- order by count(*) desc;
+
+-- select avg(carga) from cursos;
+
+-- select carga, count(*) from cursos
+-- where ano > 2015
+-- group by carga
+-- having carga > (select avg(carga) from cursos);
+
+-- EX 1
+-- select profissao, count(*) from gafanhotos
+-- group by profissao;
+
+-- EX 2
+-- select sexo, count(*) from gafanhotos
+-- where nascimento > '2005-01-01'
+-- group by sexo;
+
+-- EX 3
+-- select nacionalidade, count(*) from gafanhotos
+-- where not nacionalidade = 'Brasil'
+-- group by nacionalidade
+-- having count(*) >= 3
+-- order by count(*) desc;
+
+-- EX 4
+-- select altura, count(*) from gafanhotos
+-- where peso > '100'
+-- group by altura
+-- having altura > (select avg(altura) from gafanhotos)
+-- order by count(*) desc;
+
+-- select avg(altura) from gafanhotos;
+-- Joins
+
+-- select
+-- g.nome,
+-- g.profissao,
+-- g.cursopreferido,
+-- c.nome,
+-- c.descricao,
+-- c.carga,
+-- c.ano
+
+-- from gafanhotos as g
+-- inner join cursos as c
+-- on g.cursopreferido = c.idcurso;
+
+-- select
+-- g.nome,
+-- g.profissao,
+-- g.cursopreferido,
+-- c.nome,
+-- c.descricao,
+-- c.carga,
+-- c.ano
+
+-- from gafanhotos as g
+-- left outer join cursos as c
+-- right outer join cursos as c
+-- on g.cursopreferido = c.idcurso;
